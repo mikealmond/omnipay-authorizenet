@@ -23,6 +23,7 @@ class AIMGateway extends AbstractGateway
             'developerMode'     => false,
             'liveEndpoint'      => 'https://secure2.authorize.net/gateway/transact.dll',
             'developerEndpoint' => 'https://test.authorize.net/gateway/transact.dll',
+            'sendCvv'           => true,
         );
     }
 
@@ -80,6 +81,24 @@ class AIMGateway extends AbstractGateway
     public function setDeveloperEndpoint($value)
     {
         return $this->setParameter('developerEndpoint', $value);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSendCvv()
+    {
+        return $this->getParameter('sendCvv');
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return self
+     */
+    public function setSendCvv($value)
+    {
+        return $this->setParameter('sendCvv', $value);
     }
 
     public function authorize(array $parameters = array())

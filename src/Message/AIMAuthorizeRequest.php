@@ -18,7 +18,9 @@ class AIMAuthorizeRequest extends AbstractRequest
         $data['x_customer_ip'] = $this->getClientIp();
         $data['x_card_num'] = $this->getCard()->getNumber();
         $data['x_exp_date'] = $this->getCard()->getExpiryDate('my');
-        $data['x_card_code'] = $this->getCard()->getCvv();
+        if ($this->getSendCvv() === true) {
+            $data['x_card_code'] = $this->getCard()->getCvv();
+        }
         $data['x_cust_id'] = $this->getCustomerId();
 
         if ($this->getTestMode()) {

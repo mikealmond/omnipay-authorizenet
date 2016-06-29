@@ -84,6 +84,24 @@ abstract class AbstractRequest extends CommonAbstractRequest
     {
         return $this->getParameter('developerEndpoint');
     }
+    
+    /**
+     * @return mixed
+     */
+    public function getSendCvv()
+    {
+        return $this->getParameter('sendCvv');
+    }
+
+    /**
+     * @param string $value
+     *
+     * @return self
+     */
+    public function setSendCvv($value)
+    {
+        return $this->setParameter('sendCvv', $value);
+    }
 
     /**
      * Base data used only for the AIM API.
